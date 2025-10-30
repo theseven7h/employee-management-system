@@ -1,0 +1,22 @@
+# Bootstrap configuration - loads before application.yml
+# Used to connect to Config Server
+spring:
+  application:
+    name: gateway-service
+  config:
+    import: "optional:configserver:http://localhost:8888"
+  cloud:
+    config:
+      uri: http://localhost:8888
+      fail-fast: false
+      import-check:
+        enabled: false
+      retry:
+        max-attempts: 5
+        initial-interval: 1000
+        multiplier: 1.5
+        max-interval: 2000
+
+# JWT configuration (needed for Gateway filter)
+jwt:
+  secret: ${JWT_SECRET:darumng-employee-management-system-super-secret-key-2024-change-in-production}
