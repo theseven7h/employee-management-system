@@ -1,0 +1,11 @@
+cat > .gitignore << 'EOF'
+target/
+*.class
+*.jar
+*.log
+.idea/
+*.iml
+.DS_Store
+*.pid
+logs/
+EOF
